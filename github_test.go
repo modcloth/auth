@@ -22,7 +22,7 @@ func Test_GitHubAuth(t *testing.T) {
 	})
 
 	r, _ := http.NewRequest("GET", "foo", bytes.NewReader([]byte(body)))
-	r.Header.Set("X_HUB_SIGNATURE", signature)
+	r.Header.Set("X-Hub-Signature", signature)
 	m.ServeHTTP(recorder, r)
 
 	if recorder.Code == 401 {

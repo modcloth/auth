@@ -16,7 +16,7 @@ Writes a http.StatusUnauthorized if authentication fails
 */
 func GitHub(secret string) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
-		requestSignature := req.Header.Get("X_HUB_SIGNATURE")
+		requestSignature := req.Header.Get("X-Hub-Signature")
 
 		body, err := ioutil.ReadAll(req.Body)
 		if err != nil {
